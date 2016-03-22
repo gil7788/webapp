@@ -368,6 +368,9 @@ nav {
   float: right;
 }
 
+.blackButton + .blackButton {
+  margin-right: 1em;
+}
 
 /**************Tab Nu 1 End*********************/
 

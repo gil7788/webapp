@@ -53,7 +53,7 @@ function setPage() {
   getConfigData();
   getLocalData();
   setInput();
-
+  initialTab();
   function setInput() {
     /*setReport(0,0,"Ynet", "http://ynet.com");
     setReport(0,1,"Walla", "http://walla.com");
@@ -137,6 +137,28 @@ function setPage() {
       myData = JSON.parse(temp);
     }
   }
+
+  function initialTab(){
+    var url = window.location.href;
+    if(url.indexOf("quick-reports") > -1){
+      changeTab(0);
+        submit();
+    }
+    else if(url.indexOf("my-folders") > -1){
+      changeTab(1);
+    }
+    else if(url.indexOf("my-team-folders") > -1){
+      changeTab(2);
+      submit();
+    }
+    else if(url.indexOf("public-folders") > -1){
+      changeTab(3);
+    }
+    else{
+      changeTab(0);
+      submit();
+    }
+  }
 }
 /*Setting functions*/
 function updateHelpBar() {
@@ -185,6 +207,9 @@ function changeTab(i) {
     link.className = "blackText";
     var tabContent = document.getElementsByClassName("tabContent")[i];
     show(tabContent);
+    if(currentTab == 0 || currentTab == 2){
+      submit();
+    }
   }
 }
 /*paint the settings color*/
@@ -364,7 +389,6 @@ function search(e) {
             var report = panel.getElementsByClassName("report")[j];
             var name = report.getElementsByTagName("input")[0].value;
             var p = name.search(searchString) > -1;
-            debugger;
             if (p) {
               selectionList.selectedIndex = j;
               changeTab(0);
@@ -379,7 +403,6 @@ function search(e) {
             var report = panel.getElementsByClassName("report")[j];
             var name = report.getElementsByTagName("input")[0].value;
             var p = name.search(searchString) > -1;
-            debugger;
             if (p) {
               selectionList.selectedIndex = j;
               changeTab(2);
