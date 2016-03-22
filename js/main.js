@@ -110,7 +110,7 @@ function setPage() {
         var label = nav.getElementsByTagName("p")[0];
         label.innerHTML = action.label;
         /*Get icon */
-        var icon = "url('../img/icons/" + action.icon + ".png')";
+        var icon = "url('../webapp/img/icons/" + action.icon + ".png')";
         nav.style.backgroundImage = icon;
         /*Get actions label */
         var actionsLabel = document.getElementsByClassName("menu-caption")[i].getElementsByTagName("p")[0];
