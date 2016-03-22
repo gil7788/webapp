@@ -13,6 +13,7 @@
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="fonts/style.css">
   <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
@@ -22,33 +23,31 @@
       <a href="#"><img src="img/logo-netcraft.svg" alt="netcraft"></a>
 
       <form class="search-box">
-        <input type="search" name="q" placeholder="search">
+        <input type="search" name="q" placeholder="search" onkeypress="search(event)">
       </form>
     </div>
   </header>
 
 
   <section class="page-body layout-wrap">
-    <div class="notifications"></div>
+    <div class="notifications grey">
+      <p class="notificationsContent"></p>
+    </div>
 
     <nav class="clearfix">
       <div class="navSectionContainer">
 
-        <div class="nav-section first-nav-section black">
-          <p>Select Reporting Platform</p>
+        <div class="nav-section black">
+          <p></p>
 
           <div class="menu">
             <div class="menu-caption clearfix grey">
-              <p>Choose QS report</p>
+              <p></p>
               <div class="arrow"></div>
             </div>
 
-            <ul class="action-list">
-              <li><a href="#">link</a></li>
-              <li><a href="#">link</a></li>
-              <li><a href="#">link</a></li>
-              <li><a href="#">link</a></li>
-              <li><a href="#">link</a></li>
+            <ul class="action-list white">
+
             </ul>
           </div>
         </div>
@@ -56,21 +55,17 @@
       </div>
       <div class="navSectionContainer">
 
-        <div class="nav-section second-nav-section black">
-          <p>Select Dashboard</p>
+        <div class="nav-section black">
+          <p></p>
 
           <div class="menu">
             <div class="menu-caption">
-              <p class="grey">Choose dashboard</p>
+              <p class="grey"></p>
               <div class="arrow"></div>
             </div>
 
-            <ul class="action-list">
-              <li><a href="#">link</a></li>
-              <li><a href="#">link</a></li>
-              <li><a href="#">link</a></li>
-              <li><a href="#">link</a></li>
-              <li><a href="#">link</a></li>
+            <ul class="action-list white">
+
             </ul>
           </div>
         </div>
@@ -78,21 +73,17 @@
       </div>
       <div class="navSectionContainer">
 
-        <div class="nav-section third-nav-section black">
-          <p>Help &amp; Tutorials</p>
+        <div class="nav-section black">
+          <p></p>
 
           <div class="menu">
             <div class="menu-caption">
-              <p class="grey">Choose guide</p>
+              <p class="grey"></p>
               <div class="arrow"></div>
             </div>
 
-            <ul class="action-list">
-              <li><a href="#">link</a></li>
-              <li><a href="#">link</a></li>
-              <li><a href="#">link</a></li>
-              <li><a href="#">link</a></li>
-              <li><a href="#">link</a></li>
+            <ul class="action-list white">
+
             </ul>
           </div>
         </div>
@@ -102,62 +93,212 @@
 
     <section class="tabs">
       <ul class="clearfix">
-        <li class="grey" onclick="changeTab(0)"><a class="blackText" href="#quick-reports">Quick Reports</a></li>
-        <li class="darkGrey" onclick="changeTab(1)"><a class="whiteText" href="#my-folders">My Folders</a></li>
-        <li class="darkGrey" onclick="changeTab(2)"><a class="whiteText" href="#my-team-folders">My Team Folders</a></li>
-        <li class="darkGrey" onclick="changeTab(3)"><a class="whiteText" href="#public-folders">Public Folders</a></li>
+        <li class="grey" onclick="changeTab(0)">
+          <a class="blackText" href="#quick-reports">
+          <i class="icon-star-o"></i>
+          Quick Reports
+        </a></li>
+        <li class="darkGrey" onclick="changeTab(1)">
+          <a class="whiteText" href="#my-folders">
+            <i class="icon-external-link"></i>
+            My Folders
+          </a></li>
+        <li class="darkGrey" onclick="changeTab(2)">
+          <a class="whiteText" href="#my-team-folders">
+            <i class="icon-copy"></i>
+            My Team Folders
+          </a></li>
+        <li class="darkGrey" onclick="changeTab(3)">
+          <a class="whiteText" href="#public-folders">
+            <i class="icon-folder-open-o"></i>
+            Public Folders
+          </a></li>
       </ul>
 
       <div class="content grey">
-        <div class="helpBar clearfix">
-          <div class="selectionList white">
-            <select class="urls">
-              <option></option>
-              <option></option>
-              <option></option>
-            </select>
-          </div>
-          <div class="settings" onclick="toggleSettingsIcon()"></div>
-          <a class="expand grey" target="_blank" href="http://www.paulirish.com/"></a>
-        </div>
         <div id="quick-reports" class="tabContent">
+          <div class="helpBar clearfix">
+            <div class="selectionList hide white">
+              <select class="urls" onchange="showPageInIframe()" onload="showPageInIframe()">
+              </select>
+            </div>
+            <div class="settings white" onclick="toggleSettingsIcon()"></div>
+            <a class="expand hide grey" target="_blank" onclick="showPageInNewTab()"></a>
+          </div>
           <div class="panel clearfix white">
             <div class="report clearfix mediumGrey">
               <p class="reportText">Report1</p>
               <p class="reportName">Name</p>
-              <input type="text">
+              <div class="inputHolder">
+                <input type="text">
+                <div class="error white greyBorder clearfix hide">
+                  <p class="orange whiteText">!</p>
+                  <p>Please fill out this field</p>
+                </div>
+              </div>
               <p class="reportURL">URL</p>
-              <input type="url">
+              <div class="inputHolder">
+                <input type="url">
+                <div class="error white greyBorder clearfix hide">
+                  <p class="orange whiteText">!</p>
+                  <p>Please fill out this field</p>
+                </div>
+                <div class="error white greyBorder clearfix hide">
+                  <p class="orange whiteText">!</p>
+                  <p>Please enter a valid URL</p>
+                </div>
+              </div>
             </div>
             <div class="report clearfix mediumGrey">
               <p class="reportText">Report2</p>
               <p class="reportName">Name</p>
-              <input type="text">
+              <div class="inputHolder">
+                <input type="text">
+                <div class="error white greyBorder clearfix hide">
+                  <p class="orange whiteText">!</p>
+                  <p>Please fill out this field</p>
+                </div>
+              </div>
               <p class="reportURL">URL</p>
-              <input type="url">
+              <div class="inputHolder">
+                <input type="url">
+                <div class="error white greyBorder clearfix hide">
+                  <p class="orange whiteText">!</p>
+                  <p>Please fill out this field</p>
+                </div>
+                <div class="error white greyBorder clearfix hide">
+                  <p class="orange whiteText">!</p>
+                  <p>Please enter a valid URL</p>
+                </div>
+              </div>
+
             </div>
             <div class="report clearfix mediumGrey">
-              <p class="reportText">Report3</p>
-              <p class="reportName">Name</p>
-              <input type="text">
-              <p class="reportURL">URL</p>
-              <input type="url">
+                <p class="reportText">Report3</p>
+                <p class="reportName">Name</p>
+                <div class="inputHolder">
+                  <input type="text">
+                  <div class="error white greyBorder clearfix hide">
+                    <p class="orange whiteText">!</p>
+                    <p>Please fill out this field</p>
+                  </div>
+                </div>
+                <p class="reportURL">URL</p>
+                <div class="inputHolder">
+                  <input type="url">
+                  <div class="error white greyBorder clearfix hide">
+                    <p class="orange whiteText">!</p>
+                    <p>Please fill out this field</p>
+                  </div>
+                  <div class="error white greyBorder clearfix hide">
+                    <p class="orange whiteText">!</p>
+                    <p>Please enter a valid URL</p>
+                  </div>
+                </div>
+              </div>
+              <button type="button" name="button" class="blackButton" onclick="submit()">Save</button>
+          </div>
+          <iframe src="" frameborder="0" class="iframe"></iframe>
+        </div>
+        <div id="my-folders" class="tabContent hide">
+          <div class="helpBar clearfix">
+            <a class="expand hide grey" target="_blank" onclick="showPageInNewTab()"></a>
+          </div>
+          <iframe src="http://www.paulirish.com/" frameborder="0" class="iframe"></iframe>
+        </div>
+
+        <div id="my-team-folders" class="tabContent hide">
+          <div class="helpBar clearfix">
+            <div class="selectionList hide white">
+              <select class="urls" onchange="showPageInIframe()" onload="showPageInIframe()">
+          </select>
             </div>
-            <button type="button" name="button" class="blackButton" onclick="submit()">Save</button>
+            <div class="settings white" onclick="toggleSettingsIcon()"></div>
+            <a class="expand hide grey" target="_blank" onclick="showPageInNewTab()"></a>
+          </div>
+          <div class="panel clearfix white">
+            <div class="report clearfix mediumGrey">
+              <p class="reportText">Report1</p>
+              <p class="reportName">Name</p>
+              <div class="inputHolder">
+                <input type="text">
+                <div class="error white greyBorder clearfix hide">
+                  <p class="orange whiteText">!</p>
+                  <p>Please fill out this field</p>
+                </div>
+              </div>
+              <p class="reportURL">URL</p>
+              <div class="inputHolder">
+                <input type="url">
+                <div class="error white greyBorder clearfix hide">
+                  <p class="orange whiteText">!</p>
+                  <p>Please fill out this field</p>
+                </div>
+                <div class="error white greyBorder clearfix hide">
+                  <p class="orange whiteText">!</p>
+                  <p>Please enter a valid URL</p>
+                </div>
+              </div>
+            </div>
+            <div class="report clearfix mediumGrey">
+              <p class="reportText">Report2</p>
+              <p class="reportName">Name</p>
+              <div class="inputHolder">
+                <input type="text">
+                <div class="error white greyBorder clearfix hide">
+                  <p class="orange whiteText">!</p>
+                  <p>Please fill out this field</p>
+                </div>
+              </div>
+              <p class="reportURL">URL</p>
+              <div class="inputHolder">
+                <input type="url">
+                <div class="error white greyBorder clearfix hide">
+                  <p class="orange whiteText">!</p>
+                  <p>Please fill out this field</p>
+                </div>
+                <div class="error white greyBorder clearfix hide">
+                  <p class="orange whiteText">!</p>
+                  <p>Please enter a valid URL</p>
+                </div>
+              </div>
+
+            </div>
+            <div class="report clearfix mediumGrey">
+                <p class="reportText">Report3</p>
+                <p class="reportName">Name</p>
+                <div class="inputHolder">
+                  <input type="text">
+                  <div class="error white greyBorder clearfix hide">
+                    <p class="orange whiteText">!</p>
+                    <p>Please fill out this field</p>
+                  </div>
+                </div>
+                <p class="reportURL">URL</p>
+                <div class="inputHolder">
+                  <input type="url">
+                  <div class="error white greyBorder clearfix hide">
+                    <p class="orange whiteText">!</p>
+                    <p>Please fill out this field</p>
+                  </div>
+                  <div class="error white greyBorder clearfix hide">
+                    <p class="orange whiteText">!</p>
+                    <p>Please enter a valid URL</p>
+                  </div>
+                </div>
+              </div>
+              <button type="button" name="button" class="blackButton" onclick="submit()">Save</button>
           </div>
           <iframe src="" frameborder="0" class="iframe"></iframe>
         </div>
 
-        <div id="my-folders" class="tabContent">
-          <iframe src="http://www.paulirish.com/" frameborder="0" class="iframe"></iframe>
+        <div id="public-folders" class="tabContent hide">
+          <div class="helpBar clearfix">
+            <a class="expand hide grey" target="_blank" onclick="showPageInNewTab()"></a>
+          </div>
+          <iframe src="https://addyosmani.com/" frameborder="0" class="iframe"></iframe>
         </div>
 
-        <div id="my-team-folders" class="tabContent">
-        </div>
-
-        <div id="public-folders" class="tabContent">
-        </div>
-      </div>
     </section>
   </section>
 

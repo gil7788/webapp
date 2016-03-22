@@ -112,17 +112,30 @@ body {
 }
 
 .layout-wrap{
+  margin: auto;
   max-width: 1200px;
   min-width: 600px;
 }
 
 .page-body {
+  padding-top: 2em;
   max-width: 1200px;
   min-width: 640px;
   margin: auto;
   padding-left: 2%;
   padding-right: 2%;
   background-color: rgba(0, 0, 0, 0.4);
+}
+
+.notifications{
+  padding: 0.5em 1em;
+  height: 2.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.notificationsContent{
+  margin: 0;
 }
 
 header div {
@@ -136,12 +149,12 @@ header div {
 
 nav {
   margin: auto;
-  padding-top: 3em;
+  padding-top: 1.5em;
 }
 .navSectionContainer{
   position: relative;
   width: 30.6%;
-  height: 7em;
+  height: 10em;
   float: left;
   margin-left: 2%;
   margin-right: 2%;
@@ -164,8 +177,9 @@ nav {
   text-align: center;
   color: white;
   background-repeat: no-repeat;
-  background-position: center calc(100% - 200%);
-
+  background-position: center 4em;
+  box-sizing: border-box;
+  padding-top: 0.5em;
   z-index: 2;
 }
 .nav-section:hover {
@@ -217,7 +231,7 @@ nav {
 
 .action-list {
   position: absolute;
-  top: 0;
+  top: 100%;
   left: 0;
   width: 100%;
   margin: 0;
@@ -225,10 +239,18 @@ nav {
   box-sizing: border-box;
   text-align: left;
   list-style: none;
-  background-color: white;
   visibility: hidden;
-  z-index: 1;
-  transition: 0.5s;
+  transition: 0.3s;
+}
+
+.navSectionContainer:hover .action-list{
+  visibility: visible;
+}
+.action-list li{
+  visibility: hidden;
+  height: 0;
+  transition: 0.3s;
+  background-color: white;
 }
 
 .action-list li+li{
@@ -240,9 +262,10 @@ nav {
   color: black;
 }
 
-.navSectionContainer:hover .action-list{
+.navSectionContainer:hover .action-list li{
   top: 100%;
-  transition: 1s;
+  height: 1.5em;
+  transition: 0.3s;
   visibility:visible;
 }
 
@@ -260,6 +283,7 @@ nav {
   padding-bottom: 0.5em;
   list-style: none;
   text-align: center;
+  font-size: 0.9em;
 }
 
 .tabs li:first-child {
@@ -277,7 +301,7 @@ nav {
 .selectionList{
   float:left;
   width: 30%;
-  height: 2rem;
+  height: 3rem;
   line-height: 2rem;
   position: relative;
 }
@@ -295,6 +319,10 @@ nav {
 /**************Tab Nu 1 Start*********************/
 
 .panel {
+  position: absolute;
+  top: calc(3em+2%);
+  left: 2%;
+  width: 92.2%;
   padding: 2%;
 }
 
@@ -318,7 +346,7 @@ nav {
 }
 
 .report input {
-  width: 35%;
+  width: 99%;
 }
 
 .reportText {
@@ -366,6 +394,86 @@ nav {
   background-color: black;
 }
 
+.inputHolder {
+  float: left;
+  display: inline-block;
+  position: relative;
+  width: 34%;
+  height: 2rem;
+}
+
+.error{
+  padding-top: 0.25em;
+  position: absolute;
+  top: calc(100% + 0.5rem + 2px);
+  left: 50%;
+  border-radius: 5%;
+  z-index: 1;
+}
+
+.error p {
+  font-size: 0.75em;
+}
+
+.error p+p {
+  padding-left: 0.5em;
+  vertical-align: middle;
+  line-height: 1.75em;
+}
+
+.orange{
+  margin-top: 0.5em;
+  margin-left: 0.5em;
+  width: 1.5em;
+  height: 1.5em;
+  background-color: orange;
+  border-radius: 5%;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.5em;
+
+}
+
+.error::before {
+  position: absolute;
+  left:30%;
+  top: calc(-0.5rem - 2px);
+  width: 0;
+  height: 0;
+  border-left: solid transparent;
+  border-right: solid transparent;
+  border-left-width: calc(0.5rem + 2px);
+  border-right-width: calc(0.5rem + 2px);
+
+  border-bottom:solid rgb(200,200,200);
+  border-bottom-width: calc(0.5rem + 2px);
+}
+
+.error::after {
+  position: absolute;
+  left:calc(30% + 2px);
+  top: calc(1px - 0.5rem);
+	width: 0;
+	height: 0;
+	border-left: 0.5rem solid transparent;
+	border-right: 0.5rem solid transparent;
+
+	border-bottom: 0.5rem solid white;
+}
+
+
+.greyBorder{
+  border-color: rgb(200, 200, 200);
+  border-style: solid;
+  border-width: 2px;
+}
+
+.redBorder {
+  border-color: red;
+  border-style: solid;
+  border-width: 1px;
+}
+
 .whiteText {
   color: white;
 }
@@ -379,6 +487,7 @@ nav {
 }
 
 .content {
+  position: relative;
   height: 30rem;
   margin: auto;
   padding: 2%;
