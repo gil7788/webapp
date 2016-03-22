@@ -19,11 +19,13 @@
 
 <body onload="setPage()">
   <header class="black">
+    <h1 class="hiddenText">Welcome to Web App - Comverse 2</h1>
     <div class="layout-wrap clearfix">
       <a href="http://netcraft.co.il"><img src="img/logo-netcraft.svg" alt="netcraft"></a>
 
       <form class="search-box">
-        <input type="search" name="q" placeholder="search" onkeypress="search(event)">
+        <input id="search"type="search" name="q" placeholder="search" onkeypress="search(event)">
+        <label for="search" class="hiddenText">search</label>
       </form>
     </div>
   </header>
@@ -119,8 +121,9 @@
         <div id="quick-reports" class="tabContent">
           <div class="helpBar clearfix">
             <div class="selectionList hide white">
-              <select class="urls" onchange="showPageInIframe()" onload="showPageInIframe()">
+              <select id="firstSelectionList" class="urls" onchange="showPageInIframe()" onload="showPageInIframe()">
               </select>
+              <label for="firstSelectionList" class="hiddenText">firstSelectionList</label>
             </div>
             <div class="settings white" onclick="toggleSettingsIcon()"></div>
             <a class="expand hide grey" target="_blank" onclick="showPageInNewTab()"></a>
@@ -130,7 +133,8 @@
               <p class="reportText">Report1</p>
               <p class="reportName">Name</p>
               <div class="inputHolder">
-                <input type="text">
+                <input id="firstPanelName1" type="text">
+                <label for="firstPanelName1" class="hiddenText">report element</label>
                 <div class="error white greyBorder clearfix hide">
                   <p class="orange whiteText">!</p>
                   <p>Please fill out this field</p>
@@ -138,7 +142,8 @@
               </div>
               <p class="reportURL">URL</p>
               <div class="inputHolder">
-                <input type="url">
+                <input id="firstPanelUrl1" type="url">
+                <label for="firstPanelUrl1" class="hiddenText">report element</label>
                 <div class="error white greyBorder clearfix hide">
                   <p class="orange whiteText">!</p>
                   <p>Please fill out this field</p>
@@ -153,7 +158,8 @@
               <p class="reportText">Report2</p>
               <p class="reportName">Name</p>
               <div class="inputHolder">
-                <input type="text">
+                <input id="firstPanelName2" type="text">
+                <label for="firstPanelName2" class="hiddenText">report element</label>
                 <div class="error white greyBorder clearfix hide">
                   <p class="orange whiteText">!</p>
                   <p>Please fill out this field</p>
@@ -161,7 +167,8 @@
               </div>
               <p class="reportURL">URL</p>
               <div class="inputHolder">
-                <input type="url">
+                <input id="firstPanelUrl2" type="url">
+                <label for="firstPanelUrl2" class="hiddenText">report element</label>
                 <div class="error white greyBorder clearfix hide">
                   <p class="orange whiteText">!</p>
                   <p>Please fill out this field</p>
@@ -177,7 +184,8 @@
                 <p class="reportText">Report3</p>
                 <p class="reportName">Name</p>
                 <div class="inputHolder">
-                  <input type="text">
+                  <input id="firstPanelName3" type="text">
+                  <label for="firstPanelName3" class="hiddenText">report element</label>
                   <div class="error white greyBorder clearfix hide">
                     <p class="orange whiteText">!</p>
                     <p>Please fill out this field</p>
@@ -185,7 +193,8 @@
                 </div>
                 <p class="reportURL">URL</p>
                 <div class="inputHolder">
-                  <input type="url">
+                  <input id="firstPanelUrl3" type="url">
+                  <label for="firstPanelUrl3" class="hiddenText">report element</label>
                   <div class="error white greyBorder clearfix hide">
                     <p class="orange whiteText">!</p>
                     <p>Please fill out this field</p>
@@ -211,18 +220,20 @@
         <div id="my-team-folders" class="tabContent hide">
           <div class="helpBar clearfix">
             <div class="selectionList hide white">
-              <select class="urls" onchange="showPageInIframe()" onload="showPageInIframe()">
-          </select>
+              <select id="secondSelectionList" class="urls" onchange="showPageInIframe()" onload="showPageInIframe()">
+              </select>
+          <label for="secondSelectionList" class="hiddenText">selection list</label>
             </div>
             <div class="settings white" onclick="toggleSettingsIcon()"></div>
             <a class="expand hide grey" target="_blank" onclick="showPageInNewTab()"></a>
           </div>
-          <div class="panel clearfix white">
+          <div id="secondPanel" class="panel clearfix white">
             <div class="report clearfix mediumGrey">
               <p class="reportText">Report1</p>
               <p class="reportName">Name</p>
               <div class="inputHolder">
-                <input type="text">
+                <input id="secondPanelName1" type="text">
+                <label for="secondPanelName1" class="hiddenText">report element</label>
                 <div class="error white greyBorder clearfix hide">
                   <p class="orange whiteText">!</p>
                   <p>Please fill out this field</p>
@@ -230,7 +241,8 @@
               </div>
               <p class="reportURL">URL</p>
               <div class="inputHolder">
-                <input type="url">
+                <input id="secondPanelUrl1" type="url">
+                <label for="secondPanelUrl1" class="hiddenText">report element</label>
                 <div class="error white greyBorder clearfix hide">
                   <p class="orange whiteText">!</p>
                   <p>Please fill out this field</p>
@@ -245,7 +257,8 @@
               <p class="reportText">Report2</p>
               <p class="reportName">Name</p>
               <div class="inputHolder">
-                <input type="text">
+                <input id="secondPanelName2" type="text">
+                <label for="secondPanelName2" class="hiddenText">report element</label>
                 <div class="error white greyBorder clearfix hide">
                   <p class="orange whiteText">!</p>
                   <p>Please fill out this field</p>
@@ -253,7 +266,8 @@
               </div>
               <p class="reportURL">URL</p>
               <div class="inputHolder">
-                <input type="url">
+                <input id="secondPanelUrl2" type="url">
+                <label for="secondPanelUrl2" class="hiddenText">report element</label>
                 <div class="error white greyBorder clearfix hide">
                   <p class="orange whiteText">!</p>
                   <p>Please fill out this field</p>
@@ -269,7 +283,8 @@
                 <p class="reportText">Report3</p>
                 <p class="reportName">Name</p>
                 <div class="inputHolder">
-                  <input type="text">
+                  <input id="secondPanelName3" type="text">
+                  <label for="secondPanelName3" class="hiddenText">report element</label>
                   <div class="error white greyBorder clearfix hide">
                     <p class="orange whiteText">!</p>
                     <p>Please fill out this field</p>
@@ -277,7 +292,8 @@
                 </div>
                 <p class="reportURL">URL</p>
                 <div class="inputHolder">
-                  <input type="url">
+                  <input id="secondPanelUrl3" type="url">
+                  <label for="secondPanelUrl3" class="hiddenText">report element</label>
                   <div class="error white greyBorder clearfix hide">
                     <p class="orange whiteText">!</p>
                     <p>Please fill out this field</p>

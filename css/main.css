@@ -541,6 +541,10 @@ input {
 	border-right: 0.4em solid transparent;
 	border-top: 0.4em solid black;
 }
+
+.hiddenText{
+  font-size: 0;
+}
 /**************Utilities*********************/
 
 /* ==========================================================================
